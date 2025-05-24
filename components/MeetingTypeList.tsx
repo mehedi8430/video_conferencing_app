@@ -4,15 +4,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import HomeCard from './HomeCard';
 import MeetingModal from './MeetingModal';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
 import { Textarea } from './ui/textarea';
 import ReactDatePicker from 'react-datepicker';
-import { useToast } from './ui/use-toast';
 import { Input } from './ui/input';
+import { toast } from 'sonner';
+import HomeCard from './HomeCard';
 
 const initialValues = {
   dateTime: new Date(),
@@ -29,13 +29,12 @@ const MeetingTypeList = () => {
   const [callDetail, setCallDetail] = useState<Call>();
   const client = useStreamVideoClient();
   const { user } = useUser();
-  const { toast } = useToast();
 
   const createMeeting = async () => {
     if (!client || !user) return;
     try {
       if (!values.dateTime) {
-        toast({ title: 'Please select a date and time' });
+        toast.warning('Please select a date and time');
         return;
       }
       const id = crypto.randomUUID();
@@ -56,12 +55,10 @@ const MeetingTypeList = () => {
       if (!values.description) {
         router.push(`/meeting/${call.id}`);
       }
-      toast({
-        title: 'Meeting Created',
-      });
+      toast('Meeting Created');
     } catch (error) {
       console.error(error);
-      toast({ title: 'Failed to create Meeting' });
+      toast.error('Failed to create Meeting');
     }
   };
 
@@ -140,7 +137,7 @@ const MeetingTypeList = () => {
           title="Meeting Created"
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
-            toast({ title: 'Link Copied' });
+            toast('Link Copied' );
           }}
           image={'/icons/checked.svg'}
           buttonIcon="/icons/copy.svg"
