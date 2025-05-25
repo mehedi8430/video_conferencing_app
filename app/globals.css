@@ -8,6 +8,9 @@
   --color-dark-2: #161925;
   --color-blue-1: #0E78F9;
   --color-sky-1: #C9DDFF;
+  --color-orange-1: #FF742E;
+  --color-purple-1: #830EF9;
+  --color-yellow-1: #F9A90E;
   --background-image-hero: url('/images/hero-background.png');
 
   
@@ -164,6 +167,10 @@
   color: white;
 }
 
+.cl-userButtonPopoverActionButton:hover {
+  color: orange;
+}
+
 /* ======== stream css overrides ======== */
 .str-video__call-stats {
   max-width: 500px;
@@ -203,6 +210,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
+
 .glassmorphism2 {
   background: rgba(18, 17, 17, 0.25);
   backdrop-filter: blur(8px);
