@@ -1,18 +1,18 @@
 /* eslint-disable camelcase */
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-import MeetingModal from './MeetingModal';
-import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useUser } from '@clerk/nextjs';
-import Loader from './Loader';
-import { Textarea } from './ui/textarea';
+import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import ReactDatePicker from 'react-datepicker';
-import { Input } from './ui/input';
 import { toast } from 'sonner';
 import HomeCard from './HomeCard';
+import Loader from './Loader';
+import MeetingModal from './MeetingModal';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
 
 const initialValues = {
   dateTime: new Date(),
@@ -106,7 +106,7 @@ const MeetingTypeList = () => {
               Add a description
             </label>
             <Textarea
-              className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
               onChange={(e) =>
                 setValues({ ...values, description: e.target.value })
               }
@@ -155,7 +155,7 @@ const MeetingTypeList = () => {
         <Input
           placeholder="Meeting link"
           onChange={(e) => setValues({ ...values, link: e.target.value })}
-          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </MeetingModal>
 

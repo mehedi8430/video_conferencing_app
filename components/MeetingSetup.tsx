@@ -8,13 +8,8 @@ import {
 } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 
-<<<<<<< HEAD
-import { Button } from './ui/button';
 import { Alert } from './ui/alert';
-=======
-import Alert from "./Alert";
-import { Button } from "./ui/button";
->>>>>>> d2c972f3e60b4a0ce5040516b4d61c09fb7e70c2
+import { Button } from './ui/button';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -61,7 +56,6 @@ const MeetingSetup = ({
     return (
       <Alert
         title="The call has been ended by the host"
-        iconUrl="/icons/call-ended.svg"
       />
     );
 
